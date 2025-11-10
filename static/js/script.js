@@ -2,29 +2,53 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Byte Menu carregado!');
     
     // Filtro de categorias
-    const categoriaBtns = document.querySelectorAll('.categoria-btn');
-    const pratoCards = document.querySelectorAll('.prato-card');
-    
-    categoriaBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Remove active de todos os botões
-            categoriaBtns.forEach(b => b.classList.remove('active'));
-            // Adiciona active no botão clicado
-            this.classList.add('active');
+    // Filtro de categorias
+const categoriaBtns = document.querySelectorAll('.categoria-btn');
+// ✅ NOVO: Pega todos os contêineres de categoria
+const categorias = document.querySelectorAll('.categoria'); 
+
+categoriaBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        categoriaBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        const categoriaSelecionada = this.getAttribute('data-categoria');
+        
+        categorias.forEach(container => {
+            const tituloCategoria = container.querySelector('.categoria-titulo').textContent.trim();
+            let categoriaNoTitulo = '';
             
-            const categoria = this.getAttribute('data-categoria');
+            // Lógica para mapear o título para o data-categoria
+            if (tituloCategoria === 'Entradas') {
+                categoriaNoTitulo = 'entradas';
+            } else if (tituloCategoria === 'Pratos Principais') {
+                categoriaNoTitulo = 'principais';
+            } else if (tituloCategoria === 'Sobremesas') {
+                categoriaNoTitulo = 'sobremesas';
+            }
             
-            // filtra os pratos
-            pratoCards.forEach(card => {
-                if (categoria === 'todos' || card.getAttribute('data-categoria') === categoria) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+            // Esconde/mostra o contêiner INTEIRO
+            if (categoriaSelecionada === 'todos') {
+                container.style.display = 'block';
+            } else if (categoriaSelecionada === categoriaNoTitulo) {
+                container.style.display = 'block';
+            } else {
+                container.style.display = 'none';
+            }
         });
-    });
+        
+        
+        pratoCards.forEach(card => {
+            if (categoriaSelecionada === 'todos' || card.getAttribute('data-categoria') === categoriaSelecionada) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
     
+    });
+});
+
     // adicionar ao carrinho
     const botoesAdicionar = document.querySelectorAll('.btn-adicionar');
     botoesAdicionar.forEach(btn => {
