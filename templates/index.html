@@ -14,7 +14,7 @@
             <img src="{{ url_for('static', filename='images/logo_byte.png') }}" alt="Ristorante Byte Logo" class="corner-logo-img">
          </div>
     
-        <span class="logo-text">Menu</span> 
+        <span class="logo-text">Byte Menu</span> 
     </div>
 
     <div class="categorias" style="text-align: center; margin-bottom: 2rem;">
@@ -22,6 +22,8 @@
         <button class="categoria-btn" data-categoria="entradas">Entradas</button>
         <button class="categoria-btn" data-categoria="principais">Principais</button>
         <button class="categoria-btn" data-categoria="sobremesas">Sobremesas</button>
+        <button class="categoria-btn" data-categoria="bebidas">Bebidas (s/ álcool)</button>
+        <button class="categoria-btn" data-categoria="alcoolicos">Alcoólicos</button>
     </div>
 
     <div class="menu-container" id="cardapio"> 
@@ -124,7 +126,7 @@
             </div>
 
             <div class="card prato-card" data-categoria="principais">
-                <img src="{{ url_for('static', filename='images/ossobuco.jpg') }}" alt="Risoto com Osso Buco" class="prato-img">
+                <img src="{{ url_for('static', filename='images/osso_buco.jpg') }}" alt="Risoto com Osso Buco" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Risoto com Osso Buco</div>
                     <p class="prato-descricao">Risoto cremoso acompanhado de osso buco</p>
@@ -187,9 +189,85 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="footer">
+        <div class="categoria">
+            <h2 class="categoria-titulo">Bebidas</h2>
+            
+            <div class="card prato-card" data-categoria="bebidas">
+                <img src="{{ url_for('static', filename='images/refrigerante.jpg') }}" alt="Refrigerante Lata" class="prato-img">
+                <div class="prato-content">
+                    <div class="prato-nome">Refrigerante Lata</div>
+                    <p class="prato-descricao">Coca-Cola, Guaraná, Sprite, Soda</p>
+                    <div class="prato-preco">R$ 10,00</div>
+                    <button class="btn-adicionar" data-prato="Refrigerante Lata" data-preco="10,00">Adicionar</button>
+                </div>
+            </div>
+
+            <div class="card prato-card" data-categoria="bebidas">
+                <img src="{{ url_for('static', filename='images/h2o.jpg') }}" alt="H2O" class="prato-img">
+                <div class="prato-content">
+                    <div class="prato-nome">Água com Gás Sabores (H2O)</div>
+                    <p class="prato-descricao">Limão, Limoneto ou Citrus</p>
+                    <div class="prato-preco">R$ 8,00</div>
+                    <button class="btn-adicionar" data-prato="H2O Sabores" data-preco="8,00">Adicionar</button>
+                </div>
+            </div>
+
+            <div class="card prato-card" data-categoria="bebidas">
+                <img src="{{ url_for('static', filename='images/suco_natural.jpg') }}" alt="Sucos Naturais" class="prato-img">
+                <div class="prato-content">
+                    <div class="prato-nome">Sucos Naturais</div>
+                    <p class="prato-descricao">Laranja, Melancia, Abacaxi com Hortelã</p>
+                    <div class="prato-preco">R$ 15,00</div>
+                    <button class="btn-adicionar" data-prato="Suco Natural" data-preco="15,00">Adicionar</button>
+                </div>
+            </div>
+            
+            <div class="card prato-card" data-categoria="bebidas">
+                <img src="{{ url_for('static', filename='images/soda_italiana.jpg') }}" alt="Soda Italiana" class="prato-img">
+                <div class="prato-content">
+                    <div class="prato-nome">Soda Italiana</div>
+                    <p class="prato-descricao">Xaropes de Maçã Verde ou Cranberry com Água com Gás</p>
+                    <div class="prato-preco">R$ 18,00</div>
+                    <button class="btn-adicionar" data-prato="Soda Italiana" data-preco="18,00">Adicionar</button>
+                </div>
+            </div>
+
+            <div class="card prato-card" data-categoria="bebidas">
+                <img src="{{ url_for('static', filename='images/agua.jpg') }}" alt="Água Mineral" class="prato-img">
+                <div class="prato-content">
+                    <div class="prato-nome">Água Mineral</div>
+                    <p class="prato-descricao">Com ou sem gás (500ml)</p>
+                    <div class="prato-preco">R$ 5,00</div>
+                    <button class="btn-adicionar" data-prato="Água Mineral" data-preco="5,00">Adicionar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="categoria">
+            <h2 class="categoria-titulo">Bebidas Alcoólicas</h2>
+            
+            <div class="card prato-card" data-categoria="alcoolicos">
+                <img src="{{ url_for('static', filename='images/vinho_tinto.jpg') }}" alt="Vinho Tinto da Casa" class="prato-img">
+                <div class="prato-content">
+                    <div class="prato-nome">Vinho Tinto da Casa</div>
+                    <p class="prato-descricao">Taça de Cabernet Sauvignon jovem</p>
+                    <div class="prato-preco">R$ 35,00</div>
+                    <button class="btn-adicionar" data-prato="Vinho Tinto" data-preco="35,00">Adicionar</button>
+                </div>
+            </div>
+
+            <div class="card prato-card" data-categoria="alcoolicos">
+                <img src="{{ url_for('static', filename='images/aperol.jpg') }}" alt="Aperol Spritz" class="prato-img">
+                <div class="prato-content">
+                    <div class="prato-nome">Aperol Spritz</div>
+                    <p class="prato-descricao">Aperol, Prosecco e Água com Gás</p>
+                    <div class="prato-preco">R$ 30,00</div>
+                    <button class="btn-adicionar" data-prato="Aperol Spritz" data-preco="30,00">Adicionar</button>
+                </div>
+            </div>
+        </div>
+    </div> <div class="footer">
         <p>© 2025 Byte Menu</p>
         <p>Telefone: (61) 9999-9999 | Brasília - DF</p>
     </div>

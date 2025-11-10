@@ -25,6 +25,10 @@ categoriaBtns.forEach(btn => {
                 categoriaNoTitulo = 'principais';
             } else if (tituloCategoria === 'Sobremesas') {
                 categoriaNoTitulo = 'sobremesas';
+            } else if (tituloCategoria === 'Bebidas') { 
+                categoriaNoTitulo = 'bebidas';
+            } else if (tituloCategoria === 'Bebidas Alcoólicas') { 
+                categoriaNoTitulo = 'alcoolicos';
             }
             
             // Esconde/mostra o contêiner INTEIRO
