@@ -17,7 +17,7 @@ A estrutura do código foi elaborada para ilustrar **conceitos de Orientação a
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 | Camada | Tecnologia | Propósito |
 |:-------|:------------|:-----------|
@@ -27,3 +27,17 @@ A estrutura do código foi elaborada para ilustrar **conceitos de Orientação a
 | Serviço | **Python / Flask** | Servir a página estática localmente |
 
 ---
+
+##  Autores
+
+Projeto desenvolvido por:
+
+- **[Gabriella Orlando A. de C. Verissimo]** — [GitHub](https://github.com/gabiiverissimo-sys) | 
+- **[Vitoria Justino Cysne]** — [GitHub](https://github.com/viihjc) | 
+
+---
+
+##  Status do Projeto
+
+ *Em desenvolvimento acadêmico* — Versão de demonstração funcional do cardápio digital.
+
