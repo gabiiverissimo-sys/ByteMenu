@@ -1,4 +1,4 @@
-# 🍽️ Byte Menu | Cardápio Digital Interativo
+# Byte Menu | Cardápio Digital Interativo
 
 ## Visão Geral do Projeto
 
