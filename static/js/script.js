@@ -16,7 +16,7 @@ categoriaBtns.forEach(btn => {
             const tituloCategoria = container.querySelector('.categoria-titulo').textContent.trim();
             let categoriaNoTitulo = '';
             
-            // Lógica para mapear o título para o data-categoria
+            // mapear o título para o data-categoria
             if (tituloCategoria === 'Entradas') {
                 categoriaNoTitulo = 'entradas';
             } else if (tituloCategoria === 'Pratos Principais') {
@@ -29,7 +29,7 @@ categoriaBtns.forEach(btn => {
                 categoriaNoTitulo = 'alcoolicos';
             }
             
-            // Esconde/mostra o contêiner INTEIRO
+            // Esconde/mostra o contêiner 
             if (categoriaSelecionada === 'todos') {
                 container.style.display = 'block';
             } else if (categoriaSelecionada === categoriaNoTitulo) {
