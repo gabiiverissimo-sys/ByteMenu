@@ -4,16 +4,14 @@
     <title>Byte Menu - Cardápio</title>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <div class="header">
         <div class="corner-logo-container">
-            <img src="{{ url_for('static', filename='images/logo_byte.png') }}" alt="Ristorante Byte Logo" class="corner-logo-img">
-         </div>
-    
+            <img src="/static/images/logo_byte.png" alt="Ristorante Byte Logo" class="corner-logo-img">
+        </div>
         <span class="logo-text">Menu</span> 
     </div>
 
@@ -27,12 +25,11 @@
     </div>
 
     <div class="menu-container" id="cardapio"> 
-        
         <div class="categoria">
             <h2 class="categoria-titulo">Entradas</h2>
-            
+
             <div class="card prato-card" data-categoria="entradas">
-                <img src="{{ url_for('static', filename='images/bruschetta.jpg') }}" alt="Bruschetta Italiana" class="prato-img">
+                <img src="/static/images/bruschetta.jpg" alt="Bruschetta Italiana" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Bruschetta Italiana</div>
                     <p class="prato-descricao">Pão italiano com tomate fresco e manjericão</p>
@@ -42,7 +39,7 @@
             </div>
 
             <div class="card prato-card" data-categoria="entradas">
-                <img src="{{ url_for('static', filename='images/carpaccio.jpg') }}" alt="Carpaccio de Filé Mignon" class="prato-img">
+                <img src="/static/images/carpaccio.jpg" alt="Carpaccio de Filé Mignon" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Carpaccio de Filé Mignon</div>
                     <p class="prato-descricao">Finas fatias de filé mignon com rúcula e parmesão</p>
@@ -50,9 +47,9 @@
                     <button class="btn-adicionar" data-prato="Carpaccio de Filé Mignon" data-preco="50,00">Adicionar</button>
                 </div>
             </div>
-            
+
             <div class="card prato-card" data-categoria="entradas">
-                <img src="{{ url_for('static', filename='images/salada_burrata.jpg') }}" alt="Salada de Burrata" class="prato-img">
+                <img src="/static/images/salada_burrata.jpg" alt="Salada de Burrata" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Salada de Burrata</div>
                     <p class="prato-descricao">Burrata cremosa com tomates heirloom e pesto</p>
@@ -62,7 +59,7 @@
             </div>
 
             <div class="card prato-card" data-categoria="entradas">
-                <img src="{{ url_for('static', filename='images/antipasto.jpg') }}" alt="Antipasto Italiano" class="prato-img">
+                <img src="/static/images/antipasto.jpg" alt="Antipasto Italiano" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Antipasto Italiano</div>
                     <p class="prato-descricao">Seleção de salames, queijos e azeitonas</p>
@@ -72,7 +69,7 @@
             </div>
 
             <div class="card prato-card" data-categoria="entradas">
-                <img src="{{ url_for('static', filename='images/polenta.jpg') }}" alt="Polenta Cremosa com Funghi" class="prato-img">
+                <img src="/static/images/polenta.jpg" alt="Polenta Cremosa com Funghi" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Polenta Cremosa com Funghi</div>
                     <p class="prato-descricao">Polenta com cogumelos salteados e parmesão</p>
@@ -86,7 +83,7 @@
             <h2 class="categoria-titulo">Pratos Principais</h2>
             
             <div class="card prato-card" data-categoria="principais">
-                <img src="{{ url_for('static', filename='images/risoto_camarao.jpg') }}" alt="Risoto de Camarão" class="prato-img">
+                <img src="/static/images/risoto_camarao.jpg" alt="Risoto de Camarão" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Risoto de Camarão</div>
                     <p class="prato-descricao">Risoto cremoso com camarões frescos</p>
@@ -96,7 +93,7 @@
             </div>
 
             <div class="card prato-card" data-categoria="principais">
-                <img src="{{ url_for('static', filename='images/file_madeira.jpg') }}" alt="Filé Mignon ao Molho Madeira" class="prato-img">
+                <img src="/static/images/file_madeira.jpg" alt="Filé Mignon ao Molho Madeira" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Filé Mignon ao Molho Madeira</div>
                     <p class="prato-descricao">Filé mignon ao molho madeira com arroz à piamontese</p>
@@ -106,7 +103,7 @@
             </div>
 
             <div class="card prato-card" data-categoria="principais">
-                <img src="{{ url_for('static', filename='images/carbonara.jpg') }}" alt="Spaghetti à Carbonara" class="prato-img">
+                <img src="/static/images/carbonara.jpg" alt="Spaghetti à Carbonara" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Spaghetti à Carbonara</div>
                     <p class="prato-descricao">Massa spaghetti com molho carbonara tradicional</p>
@@ -116,7 +113,7 @@
             </div>
 
             <div class="card prato-card" data-categoria="principais">
-                <img src="{{ url_for('static', filename='images/nhoque_funghi.jpg') }}" alt="Nhoque com Molho Funghi" class="prato-img">
+                <img src="/static/images/nhoque_funghi.jpg" alt="Nhoque com Molho Funghi" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Nhoque com Molho Funghi</div>
                     <p class="prato-descricao">Nhoque com molho de cogumelos porcini frescos</p>
@@ -126,7 +123,7 @@
             </div>
 
             <div class="card prato-card" data-categoria="principais">
-                <img src="{{ url_for('static', filename='images/osso_buco.jpg') }}" alt="Risoto com Osso Buco" class="prato-img">
+                <img src="/static/images/osso_buco.jpg" alt="Risoto com Osso Buco" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Risoto com Osso Buco</div>
                     <p class="prato-descricao">Risoto cremoso acompanhado de osso buco</p>
@@ -140,7 +137,7 @@
             <h2 class="categoria-titulo">Sobremesas</h2>
             
             <div class="card prato-card" data-categoria="sobremesas">
-                <img src="{{ url_for('static', filename='images/tiramisu.jpg') }}" alt="Tiramisu" class="prato-img">
+                <img src="/static/images/tiramisu.jpg" alt="Tiramisu" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Tiramisu</div>
                     <p class="prato-descricao">Clássica sobremesa italiana com café e mascarpone</p>
@@ -150,7 +147,7 @@
             </div>
 
             <div class="card prato-card" data-categoria="sobremesas">
-                <img src="{{ url_for('static', filename='images/panna_cotta.jpg') }}" alt="Panna Cotta" class="prato-img">
+                <img src="/static/images/panna_cotta.jpg" alt="Panna Cotta" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Panna Cotta</div>
                     <p class="prato-descricao">Sobremesa italiana cremosa com calda de frutas vermelhas</p>
@@ -160,7 +157,7 @@
             </div>
 
             <div class="card prato-card" data-categoria="sobremesas">
-                <img src="{{ url_for('static', filename='images/petit_gateau.jpg') }}" alt="Petit Gateau" class="prato-img">
+                <img src="/static/images/petit_gateau.jpg" alt="Petit Gateau" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Petit Gateau</div>
                     <p class="prato-descricao">Bolinho de chocolate com sorvete de baunilha</p>
@@ -170,7 +167,7 @@
             </div>
 
             <div class="card prato-card" data-categoria="sobremesas">
-                <img src="{{ url_for('static', filename='images/cannoli.jpg') }}" alt="Cannoli Siciliano" class="prato-img">
+                <img src="/static/images/cannoli.jpg" alt="Cannoli Siciliano" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Cannoli Siciliano</div>
                     <p class="prato-descricao">Tubos crocantes recheados com ricota doce</p>
@@ -180,7 +177,7 @@
             </div>
 
             <div class="card prato-card" data-categoria="sobremesas">
-                <img src="{{ url_for('static', filename='images/creme_brulee.jpg') }}" alt="Creme Brûlée" class="prato-img">
+                <img src="/static/images/creme_brulee.jpg" alt="Creme Brûlée" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Creme Brûlée</div>
                     <p class="prato-descricao">Creme de baunilha com crosta de açúcar queimado</p>
@@ -194,7 +191,7 @@
             <h2 class="categoria-titulo">Bebidas</h2>
             
             <div class="card prato-card" data-categoria="bebidas">
-                <img src="{{ url_for('static', filename='images/refrigerante.jpg') }}" alt="Refrigerante Lata" class="prato-img">
+                <img src="/static/images/refrigerante.jpg" alt="Refrigerante Lata" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Refrigerante Lata</div>
                     <p class="prato-descricao">Coca-Cola, Guaraná, Sprite, Soda</p>
@@ -204,7 +201,7 @@
             </div>
 
             <div class="card prato-card" data-categoria="bebidas">
-                <img src="{{ url_for('static', filename='images/h2o.jpg') }}" alt="H2O" class="prato-img">
+                <img src="/static/images/h2o.jpg" alt="H2O" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Água com Gás Sabores (H2O)</div>
                     <p class="prato-descricao">Limão, Limoneto ou Citrus</p>
@@ -214,7 +211,7 @@
             </div>
 
             <div class="card prato-card" data-categoria="bebidas">
-                <img src="{{ url_for('static', filename='images/suco_natural.jpg') }}" alt="Sucos Naturais" class="prato-img">
+                <img src="/static/images/suco_natural.jpg" alt="Sucos Naturais" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Sucos Naturais</div>
                     <p class="prato-descricao">Laranja, Melancia, Abacaxi com Hortelã</p>
@@ -224,7 +221,7 @@
             </div>
             
             <div class="card prato-card" data-categoria="bebidas">
-                <img src="{{ url_for('static', filename='images/soda_italiana.jpg') }}" alt="Soda Italiana" class="prato-img">
+                <img src="/static/images/soda_italiana.jpg" alt="Soda Italiana" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Soda Italiana</div>
                     <p class="prato-descricao">Xaropes de Maçã Verde ou Cranberry com Água com Gás</p>
@@ -234,7 +231,7 @@
             </div>
 
             <div class="card prato-card" data-categoria="bebidas">
-                <img src="{{ url_for('static', filename='images/agua.jpg') }}" alt="Água Mineral" class="prato-img">
+                <img src="/static/images/agua.jpg" alt="Água Mineral" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Água Mineral</div>
                     <p class="prato-descricao">Com ou sem gás (500ml)</p>
@@ -248,7 +245,7 @@
             <h2 class="categoria-titulo">Bebidas Alcoólicas</h2>
             
             <div class="card prato-card" data-categoria="alcoolicos">
-                <img src="{{ url_for('static', filename='images/vinho_tinto.jpg') }}" alt="Vinho Tinto da Casa" class="prato-img">
+                <img src="/static/images/vinho_tinto.jpg" alt="Vinho Tinto da Casa" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Vinho Tinto da Casa</div>
                     <p class="prato-descricao">Taça de Catena Malbec</p>
@@ -258,7 +255,7 @@
             </div>
 
             <div class="card prato-card" data-categoria="alcoolicos">
-                <img src="{{ url_for('static', filename='images/aperol.jpg') }}" alt="Aperol Spritz" class="prato-img">
+                <img src="/static/images/aperol.jpg" alt="Aperol Spritz" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Aperol Spritz</div>
                     <p class="prato-descricao">Aperol, Prosecco e Água com Gás</p>
@@ -267,7 +264,9 @@
                 </div>
             </div>
         </div>
-    </div> <div class="footer">
+    </div>
+
+    <div class="footer">
         <p>© 2025 Byte Menu</p>
         <p>Telefone: (61) 9999-9999 | Brasília - DF</p>
     </div>
@@ -277,6 +276,6 @@
     <button class="btn-hero" style="display: none;">Hero</button>
     <nav style="display: none;"><a href="#cardapio">Link</a></nav>
     
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="/static/js/script.js"></script>
 </body>
 </html>

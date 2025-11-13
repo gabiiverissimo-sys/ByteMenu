@@ -1,12 +1,15 @@
-from flask import Flask, render_template  
+from bottle import Bottle, run, static_file, template
 
-app = Flask(__name__)
+app = Bottle()
 
-@app.route("/")
+@app.route('/')
 def home():
-    # O Flask vai automaticamente procurar 'index.html' na pasta 'templates/'
-    return render_template("index.html")
+    return template('index.html')
 
-if __name__ == "__main__":
+@app.route('/static/<filepath:path>')
+def server_static(filepath):
+    return static_file(filepath, root='./static')
+
+if __name__ == '__main__':
     print("Byte Menu rodando: http://localhost:5000")
-    app.run(debug=True, port=5000)
+    run(app, host='localhost', port=5000, debug=True, reloader=True)
