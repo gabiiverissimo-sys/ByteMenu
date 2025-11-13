@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Byte Menu carregado!');
     
-    // Filtro de categorias
-    // Filtro de categorias
+// Filtro de categorias  
 const categoriaBtns = document.querySelectorAll('.categoria-btn');
-// ✅ NOVO: Pega todos os contêineres de categoria
 const categorias = document.querySelectorAll('.categoria'); 
 
 categoriaBtns.forEach(btn => {
