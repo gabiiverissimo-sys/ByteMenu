@@ -24,7 +24,7 @@ A estrutura do código foi elaborada para ilustrar **conceitos de Orientação a
 | Front-End | **HTML5** | Estrutura do cardápio |
 | Estilização | **CSS3** | Design personalizado (Bordeaux/Dourado) |
 | Interatividade | **JavaScript (Vanilla)** | Lógica de filtros e botões |
-| Serviço | **Python / Flask** | Servir a página estática localmente |
+| Serviço | **Python / Bottle** | Servir a página estática localmente |
 
 ---
 
