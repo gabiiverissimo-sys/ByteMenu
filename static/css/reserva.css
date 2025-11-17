@@ -1,0 +1,252 @@
+body {
+    background: #6a1b1b;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background: #3e2723;
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 4px solid #c89b3c;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    color: #c89b3c;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.page-title {
+    color: #c89b3c;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.como-funciona {
+    background: #3e2723;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    border-bottom: 4px solid #c89b3c;
+}
+
+.como-funciona h2 {
+    color: #c89b3c;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.icons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .icons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .icons {
+        grid-template-columns: 1fr;
+    }
+}
+
+.icon-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    color: #6a1b1b;
+    border-left: 5px solid #c89b3c;
+    transition: transform 0.3s ease;
+}
+
+.icon-item:hover {
+    transform: translateY(-5px);
+}
+
+.icon-item p {
+    font-weight: bold;
+    margin: 1rem 0 0 0;
+    font-size: 0.9rem;
+}
+
+.reserva-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .reserva-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    background: white;
+    color: black;
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 5px solid #c89b3c;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    color: #6a1b1b;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    color: #6a1b1b;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    background: #f8f5f0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #c89b3c;
+    outline: none;
+}
+
+.btn-reservar {
+    background: #c89b3c;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+    transition: background 0.3s;
+}
+
+.btn-reservar:hover {
+    background: #b08c34;
+}
+
+.mesas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.mesa {
+    background: #f8f5f0;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    color: #6a1b1b;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.mesa:hover {
+    border-color: #c89b3c;
+}
+
+.mesa.selecionada {
+    background: #c89b3c;
+    color: white;
+}
+
+.mesa.ocupada {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.status-section {
+    background: #f8f5f0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.status-section h3 {
+    color: #6a1b1b;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.status-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.step {
+    text-align: center;
+    flex: 1;
+    min-width: 80px;
+}
+
+.step-icon {
+    margin-bottom: 0.5rem;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.step-text {
+    color: #666;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.step.active .step-text {
+    color: #c89b3c;
+}
+
+.step.active .step-icon img {
+    filter: brightness(0) saturate(100%) invert(67%) sepia(40%) saturate(500%) hue-rotate(360deg);
+}
+
+.footer {
+    background: #3e2723;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    border-top: 2px solid #c89b3c;
+}

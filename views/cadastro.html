@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Ristorante Byte</title>
+    <link rel="stylesheet" href="/static/css/cadastro.css">
+</head>
+<body>
+    <div class="container">
+        <div class="cadastro-header">
+            <div class="logo">RISTORANTE BYTE</div>
+            <h1 class="cadastro-title">Criar sua Conta</h1>
+            <p class="cadastro-subtitle">Preencha seus dados para se cadastrar</p>
+        </div>
+        
+        <div class="cadastro-box">
+            <form id="cadastroForm">
+                <!-- Nome Completo -->
+                <div class="form-group">
+                    <label>Nome Completo</label>
+                    <input type="text" placeholder="Seu nome completo" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Telefone</label>
+                    <input type="tel" placeholder="(11) 99999-9999" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" placeholder="seu@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Usuário</label>
+                    <input type="text" placeholder="Escolha um nome de usuário" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" placeholder="Crie uma senha segura" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Confirmar Senha</label>
+                    <input type="password" placeholder="Digite a senha novamente" required>
+                </div>
+                
+                <button type="submit" class="btn-cadastrar">Criar Conta</button>
+                
+                <div class="links">
+                    <a href="#">Já tenho uma conta</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('cadastroForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const senhas = document.querySelectorAll('input[type="password"]');
+            const senha = senhas[0].value;
+            const confirmarSenha = senhas[1].value;
+            
+            if (senha !== confirmarSenha) {
+                alert('As senhas não coincidem!');
+                return;
+            }
+            
+            alert('Cadastro realizado com sucesso!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
