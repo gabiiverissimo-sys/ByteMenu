@@ -1,15 +1,16 @@
-from bottle import Bottle, run, static_file, template
+from bottle import Bottle, run
+from config import HOST, PORT, DEBUG, RELOADER
+
+from controllers.auth_routes import auth_routes
+from controllers.user_routes import user_routes
 
 app = Bottle()
+app.merge(auth_routes)
+app.merge(user_routes)
 
-@app.route('/')
+@app.get('/')
 def home():
-    return template('index.html')
+    return {"msg": "API ByteMenu está rodando! Use /usuarios, /register ou /login."}
 
-@app.route('/static/<filepath:path>')
-def server_static(filepath):
-    return static_file(filepath, root='./static')
-
-if __name__ == '__main__':
-    print("Byte Menu rodando: http://localhost:5000")
-    run(app, host='localhost', port=5000, debug=True, reloader=True)
+if __name__ == "__main__":
+    run(app, host=HOST, port=PORT, debug=DEBUG, reloader=RELOADER)
