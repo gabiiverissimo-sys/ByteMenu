@@ -7,7 +7,7 @@ from models.user_models import (
     deletar_usuario
 )
 
-user_routes = Bottle()  # <<< aqui está o objeto que faltava
+user_routes = Bottle() 
 
 #criar usuário
 @user_routes.post('/usuarios')
