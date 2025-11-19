@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Byte Menu - Cardápio</title>
     <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="/static/css/menu.css">
 </head>
+
 <body>
     <div class="header">
         <div class="corner-logo-container">
             <img src="/static/images/logo_byte.png" alt="Ristorante Byte Logo" class="corner-logo-img">
         </div>
-        <span class="logo-text">Menu</span> 
+        <span class="logo-text">Menu</span>
+
+        <div class="corner-icon-container">
+            <div class="bars">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+
     </div>
 
     <div class="categorias" style="text-align: center; margin-bottom: 2rem;">
@@ -24,7 +37,7 @@
         <button class="categoria-btn" data-categoria="alcoolicos">Alcoólicos</button>
     </div>
 
-    <div class="menu-container" id="cardapio"> 
+    <div class="menu-container" id="cardapio">
         <div class="categoria">
             <h2 class="categoria-titulo">Entradas</h2>
 
@@ -34,7 +47,6 @@
                     <div class="prato-nome">Bruschetta Italiana</div>
                     <p class="prato-descricao">Pão italiano com tomate fresco e manjericão</p>
                     <div class="prato-preco">R$ 30,00</div>
-                    <button class="btn-adicionar" data-prato="Bruschetta Italiana" data-preco="30,00">Adicionar</button>
                 </div>
             </div>
 
@@ -44,7 +56,6 @@
                     <div class="prato-nome">Carpaccio de Filé Mignon</div>
                     <p class="prato-descricao">Finas fatias de filé mignon com rúcula e parmesão</p>
                     <div class="prato-preco">R$ 50,00</div>
-                    <button class="btn-adicionar" data-prato="Carpaccio de Filé Mignon" data-preco="50,00">Adicionar</button>
                 </div>
             </div>
 
@@ -54,7 +65,6 @@
                     <div class="prato-nome">Salada de Burrata</div>
                     <p class="prato-descricao">Burrata cremosa com tomates heirloom e pesto</p>
                     <div class="prato-preco">R$ 65,00</div>
-                    <button class="btn-adicionar" data-prato="Salada de Burrata" data-preco="65,00">Adicionar</button>
                 </div>
             </div>
 
@@ -64,7 +74,6 @@
                     <div class="prato-nome">Antipasto Italiano</div>
                     <p class="prato-descricao">Seleção de salames, queijos e azeitonas</p>
                     <div class="prato-preco">R$ 25,00</div>
-                    <button class="btn-adicionar" data-prato="Antipasto Italiano" data-preco="25,00">Adicionar</button>
                 </div>
             </div>
 
@@ -74,21 +83,19 @@
                     <div class="prato-nome">Polenta Cremosa com Funghi</div>
                     <p class="prato-descricao">Polenta com cogumelos salteados e parmesão</p>
                     <div class="prato-preco">R$ 55,00</div>
-                    <button class="btn-adicionar" data-prato="Polenta Cremosa com Funghi" data-preco="55,00">Adicionar</button>
                 </div>
             </div>
         </div>
 
         <div class="categoria">
             <h2 class="categoria-titulo">Pratos Principais</h2>
-            
+
             <div class="card prato-card" data-categoria="principais">
                 <img src="/static/images/risoto_camarao.jpg" alt="Risoto de Camarão" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Risoto de Camarão</div>
                     <p class="prato-descricao">Risoto cremoso com camarões frescos</p>
                     <div class="prato-preco">R$ 89,00</div>
-                    <button class="btn-adicionar" data-prato="Risoto de Camarão" data-preco="89,00">Adicionar</button>
                 </div>
             </div>
 
@@ -98,7 +105,6 @@
                     <div class="prato-nome">Filé Mignon ao Molho Madeira</div>
                     <p class="prato-descricao">Filé mignon ao molho madeira com arroz à piamontese</p>
                     <div class="prato-preco">R$ 109,00</div>
-                    <button class="btn-adicionar" data-prato="Filé Mignon ao Molho Madeira" data-preco="109,00">Adicionar</button>
                 </div>
             </div>
 
@@ -108,7 +114,6 @@
                     <div class="prato-nome">Spaghetti à Carbonara</div>
                     <p class="prato-descricao">Massa spaghetti com molho carbonara tradicional</p>
                     <div class="prato-preco">R$ 72,00</div>
-                    <button class="btn-adicionar" data-prato="Spaghetti à Carbonara" data-preco="72,00">Adicionar</button>
                 </div>
             </div>
 
@@ -118,7 +123,6 @@
                     <div class="prato-nome">Nhoque com Molho Funghi</div>
                     <p class="prato-descricao">Nhoque com molho de cogumelos porcini frescos</p>
                     <div class="prato-preco">R$ 79,00</div>
-                    <button class="btn-adicionar" data-prato="Nhoque com Molho Funghi" data-preco="79,00">Adicionar</button>
                 </div>
             </div>
 
@@ -128,21 +132,19 @@
                     <div class="prato-nome">Risoto com Osso Buco</div>
                     <p class="prato-descricao">Risoto cremoso acompanhado de osso buco</p>
                     <div class="prato-preco">R$ 82,00</div>
-                    <button class="btn-adicionar" data-prato="Risoto com Osso Buco" data-preco="82,00">Adicionar</button>
                 </div>
             </div>
         </div>
 
         <div class="categoria">
             <h2 class="categoria-titulo">Sobremesas</h2>
-            
+
             <div class="card prato-card" data-categoria="sobremesas">
                 <img src="/static/images/tiramisu.jpg" alt="Tiramisu" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Tiramisu</div>
                     <p class="prato-descricao">Clássica sobremesa italiana com café e mascarpone</p>
                     <div class="prato-preco">R$ 27,00</div>
-                    <button class="btn-adicionar" data-prato="Tiramisu" data-preco="27,00">Adicionar</button>
                 </div>
             </div>
 
@@ -152,7 +154,6 @@
                     <div class="prato-nome">Panna Cotta</div>
                     <p class="prato-descricao">Sobremesa italiana cremosa com calda de frutas vermelhas</p>
                     <div class="prato-preco">R$ 29,00</div>
-                    <button class="btn-adicionar" data-prato="Panna Cotta" data-preco="29,00">Adicionar</button>
                 </div>
             </div>
 
@@ -162,7 +163,6 @@
                     <div class="prato-nome">Petit Gateau</div>
                     <p class="prato-descricao">Bolinho de chocolate com sorvete de baunilha</p>
                     <div class="prato-preco">R$ 27,00</div>
-                    <button class="btn-adicionar" data-prato="Petit Gateau" data-preco="27,00">Adicionar</button>
                 </div>
             </div>
 
@@ -172,7 +172,6 @@
                     <div class="prato-nome">Cannoli Siciliano</div>
                     <p class="prato-descricao">Tubos crocantes recheados com ricota doce</p>
                     <div class="prato-preco">R$ 23,00</div>
-                    <button class="btn-adicionar" data-prato="Cannoli Siciliano" data-preco="23,00">Adicionar</button>
                 </div>
             </div>
 
@@ -182,21 +181,19 @@
                     <div class="prato-nome">Creme Brûlée</div>
                     <p class="prato-descricao">Creme de baunilha com crosta de açúcar queimado</p>
                     <div class="prato-preco">R$ 29,00</div>
-                    <button class="btn-adicionar" data-prato="Creme Brûlée" data-preco="29,00">Adicionar</button>
                 </div>
             </div>
         </div>
 
         <div class="categoria">
             <h2 class="categoria-titulo">Bebidas</h2>
-            
+
             <div class="card prato-card" data-categoria="bebidas">
                 <img src="/static/images/refrigerante.jpg" alt="Refrigerante Lata" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Refrigerante Lata</div>
                     <p class="prato-descricao">Coca-Cola, Guaraná, Sprite, Soda</p>
                     <div class="prato-preco">R$ 10,00</div>
-                    <button class="btn-adicionar" data-prato="Refrigerante Lata" data-preco="10,00">Adicionar</button>
                 </div>
             </div>
 
@@ -206,7 +203,6 @@
                     <div class="prato-nome">Água com Gás Sabores (H2O)</div>
                     <p class="prato-descricao">Limão, Limoneto ou Citrus</p>
                     <div class="prato-preco">R$ 8,00</div>
-                    <button class="btn-adicionar" data-prato="H2O Sabores" data-preco="8,00">Adicionar</button>
                 </div>
             </div>
 
@@ -216,17 +212,15 @@
                     <div class="prato-nome">Sucos Naturais</div>
                     <p class="prato-descricao">Laranja, Melancia, Abacaxi com Hortelã</p>
                     <div class="prato-preco">R$ 15,00</div>
-                    <button class="btn-adicionar" data-prato="Suco Natural" data-preco="15,00">Adicionar</button>
                 </div>
             </div>
-            
+
             <div class="card prato-card" data-categoria="bebidas">
                 <img src="/static/images/soda_italiana.jpg" alt="Soda Italiana" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Soda Italiana</div>
                     <p class="prato-descricao">Xaropes de Maçã Verde ou Cranberry com Água com Gás</p>
                     <div class="prato-preco">R$ 18,00</div>
-                    <button class="btn-adicionar" data-prato="Soda Italiana" data-preco="18,00">Adicionar</button>
                 </div>
             </div>
 
@@ -236,21 +230,19 @@
                     <div class="prato-nome">Água Mineral</div>
                     <p class="prato-descricao">Com ou sem gás (500ml)</p>
                     <div class="prato-preco">R$ 5,00</div>
-                    <button class="btn-adicionar" data-prato="Água Mineral" data-preco="8,00">Adicionar</button>
                 </div>
             </div>
         </div>
 
         <div class="categoria">
             <h2 class="categoria-titulo">Bebidas Alcoólicas</h2>
-            
+
             <div class="card prato-card" data-categoria="alcoolicos">
                 <img src="/static/images/vinho_tinto.jpg" alt="Vinho Tinto da Casa" class="prato-img">
                 <div class="prato-content">
                     <div class="prato-nome">Vinho Tinto da Casa</div>
                     <p class="prato-descricao">Taça de Catena Malbec</p>
                     <div class="prato-preco">R$ 35,00</div>
-                    <button class="btn-adicionar" data-prato="Vinho Tinto" data-preco="40,00">Adicionar</button>
                 </div>
             </div>
 
@@ -260,7 +252,6 @@
                     <div class="prato-nome">Aperol Spritz</div>
                     <p class="prato-descricao">Aperol, Prosecco e Água com Gás</p>
                     <div class="prato-preco">R$ 30,00</div>
-                    <button class="btn-adicionar" data-prato="Aperol Spritz" data-preco="30,00">Adicionar</button>
                 </div>
             </div>
         </div>
@@ -270,12 +261,13 @@
         <p>© 2025 Byte Menu</p>
         <p>Telefone: (61) 9999-9999 | Brasília - DF</p>
     </div>
-    
+
     <button class="btn-pedido" style="display: none;">Pedido</button>
     <button class="btn-whatsapp" style="display: none;">WhatsApp</button>
     <button class="btn-hero" style="display: none;">Hero</button>
     <nav style="display: none;"><a href="#cardapio">Link</a></nav>
-    
+
     <script src="/static/js/script.js"></script>
 </body>
+
 </html>

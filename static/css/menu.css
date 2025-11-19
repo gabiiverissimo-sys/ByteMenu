@@ -20,6 +20,7 @@ body {
     margin-bottom: 0;         
     width: fit-content;      
 }
+
 .menu-container {
     max-width: 800px;
     margin: 2rem auto;
@@ -76,22 +77,6 @@ body {
     flex-grow: 1; 
     display: flex; 
     flex-direction: column; 
-}
-
-.btn-adicionar {
-    background: #c89b3c;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s;
-    display: block; 
-    margin-top: 10px;
-}
-.btn-adicionar:hover {
-    background: #b08c34;
 }
 
 .footer {
@@ -168,4 +153,31 @@ body {
     object-fit: cover;      
     border-radius: 8px;
     margin-bottom: 0;        
+}
+
+.corner-icon-container {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #c89b3c;
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+}
+
+.bars {
+    display: flex;
+    flex-direction: column; /* empilha os traços */
+    gap: 5px;               /* espaço entre eles */
+    margin-bottom: 5px;
+}
+
+.bars span {
+    width: 30px;            /* largura do traço */
+    height: 5px;            /* espessura */
+    background-color: #c89b3c;
+    display: block;
+    border-radius: 2px;     /* cantos arredondados */
 }
