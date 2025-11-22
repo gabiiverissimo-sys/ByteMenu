@@ -7,14 +7,16 @@ O objetivo principal é demonstrar a criação de uma **página estática (HTML/
 
 ---
 
-## Tecnologias Utilizadas
+## Tecnologias Utilizadas (Full-Stack Cardápio Digital)
+
+O projeto foi construído utilizando uma arquitetura Full-Stack, com um servidor Python para gerenciar as operações de CRUD.
 
 | Camada | Tecnologia | Propósito |
-|:-------|:------------|:-----------|
-| Front-End | **HTML5** | Estrutura do cardápio |
-| Estilização | **CSS3** | Design personalizado (Bordeaux/Dourado) |
-| Interatividade | **JavaScript (Vanilla)** | Lógica de filtros e botões |
-| Serviço | **Python / Bottle** | Servir a página estática localmente |
+|:--------------|:---------------------------|:-------------------------------------------------------------|
+| Front-End | **HTML5** | Estrutura semântica do cardápio. |
+| Estilização | **CSS3** | Design personalizado (paleta Bordeaux/Dourado) e responsividade. |
+| Interatividade | **JavaScript (Vanilla) & Fetch API** | Lógica de filtros e **comunicação assíncrona** com a API para operações CRUD. |
+| Backend / API | **Python / Bottle** | Servir a **API REST/JSON**, processar requisições CRUD (Create, Read, Update, Delete) e gerenciar a lógica de negócios. |
 
 ---
 
