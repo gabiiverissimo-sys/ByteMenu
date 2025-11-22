@@ -2,8 +2,9 @@
 
 ## Visão Geral do Projeto
 
-O **Byte Menu** é um **Cardápio Digital Interativo**, desenvolvido como projeto universitário para a disciplina de **BMVC**.  
-O objetivo principal é demonstrar a criação de uma **página estática (HTML/TPL)** que utiliza **CSS** e **JavaScript** plenamente funcionais, simulando uma aplicação para restaurantes.
+O **Byte Menu** é um cardápio digital interativo , desenvolvido como projeto universitário para a disciplina de Orientação a Objetos.
+Este trabalho simula uma aplicação para restaurantes , sendo especificamente ambientado no **'Ristorante Byte'**, um estabelecimento de comida italiana.
+Nosso objetivo principal foi demonstrar a criação de uma página estática (HTML/TPL) , que utiliza CSS e JavaScript plenamente funcionais , e que simula uma funcionalidade essencial para o cliente: a reserva de mesas com antecedência
 
 ---
 
