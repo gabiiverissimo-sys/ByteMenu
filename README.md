@@ -7,16 +7,6 @@ O objetivo principal é demonstrar a criação de uma **página estática (HTML/
 
 ---
 
-## Foco Acadêmico: Orientação a Objetos (OO)
-
-A estrutura do código foi elaborada para ilustrar **conceitos de Orientação a Objetos** no contexto do Front-End:
-
-- Cada item do menu (`.prato-card`) é visto como uma **instância de um objeto**.  
-- Os dados do prato (`data-prato`, `prato-preco`) são os **atributos** do objeto.  
-- A lógica de filtragem e o botão **Adicionar** (no `script.js`) são os **métodos/comportamentos** que o objeto pode executar.
-
----
-
 ## Tecnologias Utilizadas
 
 | Camada | Tecnologia | Propósito |
