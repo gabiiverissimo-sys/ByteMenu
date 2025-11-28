@@ -2,12 +2,40 @@ from bottle import Bottle, request, response
 from models.user_models import (
     criar_usuario,
     buscar_usuario_por_email,
-    verificar_senha
+    verificar_senha,
+    deletar_usuario
 )
+import jwt
+from datetime import datetime, timedelta
+from config import SECRET_KEY, JWT_ALGORITHM, JWT_EXP_HOURS 
 
 auth_routes = Bottle()
 
-#cadastro - publico
+def autenticar():
+    token = request.get_header("Authorization")
+
+    if not token:
+        response.status = 401
+        return {"erro": "Token não fornecido."}
+
+    try:
+        token = token.replace("Bearer ", "")
+        dados = jwt.decode(token, SECRET_KEY, algorithms=[JWT_ALGORITHM]) 
+        return dados  
+    except jwt.ExpiredSignatureError:
+        response.status = 401
+        return {"erro": "Token expirado."}
+    except Exception as e:
+        print(f"Erro ao decodificar token: {e}") 
+        response.status = 401
+        return {"erro": "Token inválido."}
+
+#teste de rota
+@auth_routes.get('/login')
+def login_info():
+    return {"info": "Use POST /login para fazer login com email e senha."}
+
+#cadastro de usuário
 @auth_routes.post('/register')
 def register():
     data = request.json
@@ -30,7 +58,7 @@ def register():
     return {"mensagem": "Usuário criado com sucesso!"}
 
 
-#login
+#login de usuário
 @auth_routes.post('/login')
 def login():
     data = request.json
@@ -48,11 +76,39 @@ def login():
         response.status = 401
         return {"erro": "Senha incorreta."}
 
+    #geração do token JWT
+    token = jwt.encode(
+        {
+            "user_id": user["id"],
+            "exp": datetime.utcnow() + timedelta(hours=JWT_EXP_HOURS) # Usando a variável importada
+        },
+        SECRET_KEY, # Usando a variável importada
+        algorithm=JWT_ALGORITHM # Usando a variável importada
+    )
+
     return {
         "mensagem": "Login realizado com sucesso!",
+        "token": token,
         "user": {
             "id": user["id"],
             "nome": user["nome"],
             "email": user["email"]
         }
     }
+
+#deletar conta - uso de token JWT
+@auth_routes.delete('/user/delete')
+def deletar_conta():
+    auth = autenticar()
+    if isinstance(auth, dict) and "erro" in auth:
+        return auth  # token inválido
+
+    user_id = auth["user_id"]
+
+    sucesso = deletar_usuario(user_id)
+
+    if not sucesso:
+        response.status = 500
+        return {"erro": "Erro ao deletar conta."}
+
+    return {"mensagem": "Conta deletada com sucesso!"}
