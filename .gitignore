@@ -1,22 +1,22 @@
 # .gitignore para ByteMenu (Python/Bottle)
 
-# O .env contém o valor REAL da sua chave secreta e NUNCA deve ser commitado.
+#segurança
 .env
 
 
-# Arquivo do banco de dados SQLite com dados de usuário.
+#banco de dados
 database.sqlite3
 
 
-# Pastas de ambiente virtual Python.
+#pastas de ambiente virtual python
 venv/
 env/
 .venv/
 
 
-# Cache de bytecode
+#cache de bytecode
 __pycache__/
 *.pyc
 
-# 5. Logs (Se houver)
+#logas
 *.log
