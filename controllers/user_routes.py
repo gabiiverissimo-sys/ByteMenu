@@ -9,10 +9,10 @@ from models.user_models import (
 
 user_routes = Bottle() 
 
-#criar usuário
+# criar usuário
 @user_routes.post('/usuarios')
 def registrar_usuario():
-    data = request.json
+    data = request.json  # ADIÇÃO: recebendo JSON do frontend
 
     nome = data.get("nome")
     telefone = data.get("telefone")
@@ -32,14 +32,14 @@ def registrar_usuario():
     return {"msg": "Usuário criado com sucesso!"}
 
 
-#listar
+# listar
 @user_routes.get('/usuarios')
 def listar():
     users = listar_usuarios()
     return {"usuarios": [dict(u) for u in users]}
 
 
-#buscar
+# buscar
 @user_routes.get('/usuarios/<id:int>')
 def buscar(id):
     user = buscar_usuario_por_id(id)
@@ -49,10 +49,10 @@ def buscar(id):
     return dict(user)
 
 
-#atualizar
+# atualizar
 @user_routes.put('/usuarios/<id:int>')
 def atualizar(id):
-    data = request.json
+    data = request.json  # ADIÇÃO: recebendo JSON
     nome = data.get("nome")
     telefone = data.get("telefone")
     email = data.get("email")
@@ -65,7 +65,7 @@ def atualizar(id):
     return {"msg": "Usuário atualizado com sucesso!"}
 
 
-#deletar
+# deletar
 @user_routes.delete('/usuarios/<id:int>')
 def deletar(id):
     sucesso = deletar_usuario(id)

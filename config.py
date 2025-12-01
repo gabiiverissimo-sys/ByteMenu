@@ -5,6 +5,7 @@ load_dotenv()
 
 SECRET_KEY = os.environ.get("JWT_SECRET", "ByteMenu#default") 
 JWT_ALGORITHM = "HS256"
+JWT_EXP_HOURS = 36
 
 DATABASE_PATH = "database.sqlite3" 
 

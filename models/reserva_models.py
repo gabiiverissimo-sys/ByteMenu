@@ -2,10 +2,13 @@ from .db import get_connection
 from datetime import datetime
 
 def criar_reserva(user_id, data, horario, num_pessoas, observacao=None):
-   
     try:
-        # converter data para formato ISO (YYYY-MM-DD) - evitar problemas de locale
-        data_iso = datetime.strptime(data, "%d/%m/%Y").strftime("%Y-%m-%d")
+        # tenta converter data dd/mm/yyyy
+        try:
+            data_iso = datetime.strptime(data, "%d/%m/%Y").strftime("%Y-%m-%d")
+        except ValueError:
+            # tenta converter yyyy-mm-dd
+            data_iso = datetime.strptime(data, "%Y-%m-%d").strftime("%Y-%m-%d")
 
         conn = get_connection()
         cursor = conn.cursor()
@@ -13,12 +16,15 @@ def criar_reserva(user_id, data, horario, num_pessoas, observacao=None):
             INSERT INTO reservas (user_id, data, horario, num_pessoas, observacao)
             VALUES (?, ?, ?, ?, ?)
         """, (user_id, data_iso, horario, num_pessoas, observacao))
+        
         conn.commit()
         conn.close()
         return True
+
     except Exception as e:
-        print("Erro ao criar reserva:", e)
+        print("Erro ao criar reserva:", type(e).__name__, e)
         return False
+
 
 
 def listar_reservas():
