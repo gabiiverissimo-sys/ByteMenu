@@ -250,3 +250,32 @@ input:focus, select:focus, textarea:focus {
     margin-top: 3rem;
     border-top: 2px solid #c89b3c;
 }
+.bars {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.bars:hover {
+    transform: scale(1.1);
+}
+
+.bars span {
+    width: 30px;
+    height: 5px;
+    background-color: #c89b3c;
+    display: block;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.bars:hover span {
+    background-color: #b08c34;
+}
+
+body.menu-aberto {
+    overflow: hidden;
+}
