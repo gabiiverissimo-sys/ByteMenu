@@ -169,15 +169,44 @@ body {
 
 .bars {
     display: flex;
-    flex-direction: column; /* empilha os traços */
-    gap: 5px;               /* espaço entre eles */
+    flex-direction: column; 
+    gap: 5px;               
     margin-bottom: 5px;
 }
 
 .bars span {
-    width: 30px;            /* largura do traço */
-    height: 5px;            /* espessura */
+    width: 30px;        
+    height: 5px;         
     background-color: #c89b3c;
     display: block;
-    border-radius: 2px;     /* cantos arredondados */
+    border-radius: 2px;     
+} 
+.bars {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.bars:hover {
+    transform: scale(1.1);
+}
+
+.bars span {
+    width: 30px;
+    height: 5px;
+    background-color: #c89b3c;
+    display: block;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.bars:hover span {
+    background-color: #b08c34;
+}
+
+body.menu-aberto {
+    overflow: hidden;
 }
