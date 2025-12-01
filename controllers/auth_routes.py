@@ -80,10 +80,10 @@ def login():
     token = jwt.encode(
         {
             "user_id": user["id"],
-            "exp": datetime.utcnow() + timedelta(hours=JWT_EXP_HOURS) # Usando a variável importada
+            "exp": datetime.utcnow() + timedelta(hours=JWT_EXP_HOURS) 
         },
-        SECRET_KEY, # Usando a variável importada
-        algorithm=JWT_ALGORITHM # Usando a variável importada
+        SECRET_KEY, 
+        algorithm=JWT_ALGORITHM 
     )
 
     return {

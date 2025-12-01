@@ -75,24 +75,21 @@ def deletar(id):
 def nova_reserva():
     try:
         data = request.json
-        print("DEBUG /reservas - payload recebido:", data)   # <-- log importante
+        print("DEBUG /reservas - payload recebido:", data)   
 
-        # leitura explícita
+
         user_id = data.get("user_id")
         data_reserva = data.get("data")
         horario = data.get("horario")
         num_pessoas = data.get("num_pessoas")
         observacao = data.get("observacao")
-        mesa = data.get("mesa")  # se sua tabela/model aceitar mesa
+        mesa = data.get("mesa")  
 
         if not user_id or not data_reserva or not horario or not num_pessoas:
             response.status = 400
             return {"erro": "Preencha todos os campos obrigatórios (user_id, data, horario, num_pessoas)."}
 
-        # se criar_reserva pode lançar exceção, capture-a
-        sucesso = criar_reserva(user_id, data_reserva, horario, num_pessoas, observacao)  # ajuste se adicionar mesa
-        # ou se você alterou criar_reserva para receber mesa:
-        # sucesso = criar_reserva(user_id, data_reserva, horario, num_pessoas, observacao, mesa)
+        sucesso = criar_reserva(user_id, data_reserva, horario, num_pessoas, observacao)  
 
         if not sucesso:
             response.status = 500
@@ -101,7 +98,6 @@ def nova_reserva():
         return {"msg": "Reserva criada com sucesso!"}
 
     except Exception as e:
-        # mostra o erro no console do backend e retorna mensagem útil para o frontend (apenas em dev)
         print("ERRO ao criar reserva:", repr(e))
         response.status = 500
         return {"erro": f"Exceção no servidor: {str(e)}"}
