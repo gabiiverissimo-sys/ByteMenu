@@ -1,12 +1,13 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     const bars = document.querySelector('.bars');
     let menuCriado = false;
     let menuOverlay;
 
-    const usuarioLogado = JSON.parse(localStorage.getItem('usuario')); 
+    //localStorage
+    const usuarioLogado = JSON.parse(localStorage.getItem('usuario'));
 
-    bars.addEventListener('click', function() {
+    bars.addEventListener('click', function () {
         if (!menuCriado) {
             criarMenuHamburguer();
             menuCriado = true;
@@ -56,11 +57,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if (usuarioLogado) {
             menuHTML += `
                 <li style="margin-bottom: 20px; color: #c89b3c; font-size: 1.2rem; font-weight: bold; padding: 10px; border-bottom: 1px solid #c89b3c;">
-                    > ${usuarioLogado.nome}
+                     ${usuarioLogado.nome}
                 </li>
                 <li style="margin-bottom: 20px;">
                     <a href="/reserva" style="color: #c89b3c; text-decoration: none; font-size: 1.2rem; font-weight: bold; display: block; padding: 10px; border-bottom: 1px solid #c89b3c;">
-                        Reservas
+                        Fazer Reserva
+                    </a>
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <a href="#" id="logoutBtn" style="color: #c89b3c; text-decoration: none; font-size: 1.2rem; font-weight: bold; display: block; padding: 10px; border-bottom: 1px solid #c89b3c;">
+                        Sair
                     </a>
                 </li>
             `;
@@ -74,6 +80,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 <li style="margin-bottom: 20px;">
                     <a href="/cadastro" style="color: #c89b3c; text-decoration: none; font-size: 1.2rem; font-weight: bold; display: block; padding: 10px; border-bottom: 1px solid #c89b3c;">
                         Cadastro
+                    </a>
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <a href="/login" style="color: #c89b3c; text-decoration: none; font-size: 1.2rem; font-weight: bold; display: block; padding: 10px; border-bottom: 1px solid #c89b3c;">
+                        Fazer Reserva
                     </a>
                 </li>
             `;
@@ -92,12 +103,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
         menuOverlay.addEventListener('click', toggleMenu);
         menuLateral.querySelector('.fechar-menu').addEventListener('click', toggleMenu);
+
+        const logoutBtn = menuLateral.querySelector('#logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                localStorage.removeItem('usuario');
+                localStorage.removeItem('token');
+                localStorage.removeItem('user_id');
+                alert("Você saiu da conta.");
+                window.location.href = "/";
+            });
+        }
     }
 
     function toggleMenu() {
         const menuLateral = document.querySelector('.menu-lateral');
         const menuOverlay = document.querySelector('.menu-overlay');
-        
+
         if (menuLateral.style.right === '0px') {
             menuLateral.style.right = '-300px';
             menuOverlay.style.display = 'none';

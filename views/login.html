@@ -62,19 +62,15 @@
                     return;
                 }
 
-                // 🔥 SALVA TOKEN E USER_ID
+                //salva user_id
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("user_id", data.user.id);
 
-                // 🔥 SALVA OBJETO USUÁRIO PARA O MENU
                 localStorage.setItem("usuario", JSON.stringify({
                     nome: data.user.nome,  
                     email: data.user.email, 
                     id: data.user.id
                 }));
-
-
-                // 🔥 REDIRECIONA PARA A PÁGINA DE RESERVA
                 window.location.href = "/reserva";
 
             } catch (erro) {

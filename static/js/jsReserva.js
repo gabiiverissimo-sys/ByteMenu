@@ -4,9 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let menuCriado = false;
     let menuOverlay;
 
-    // Recupera usuário logado do localStorage
+    // localStorage
     const usuarioLogado = JSON.parse(localStorage.getItem('usuario')); 
-    // Estrutura esperada: { nome: "Gabriella", email: "...", token: "..." }
 
     bars.addEventListener('click', function() {
         if (!menuCriado) {
@@ -45,12 +44,11 @@ document.addEventListener('DOMContentLoaded', function() {
             box-shadow: -5px 0 15px rgba(0,0,0,0.3);
         `;
 
-        // Monta o menu da página de reservas
         let menuHTML = `
             <nav style="display: block !important;">
                 <ul style="list-style: none; padding: 0; margin: 0;">
                     <li style="margin-bottom: 20px; color: #c89b3c; font-size: 1.2rem; font-weight: bold; padding: 10px; border-bottom: 1px solid #c89b3c;">
-                        👤 ${usuarioLogado ? usuarioLogado.nome : "Usuário"}
+                         ${usuarioLogado ? usuarioLogado.nome : "Usuário"}
                     </li>
                     <li style="margin-bottom: 20px;">
                         <a href="/" style="color: #c89b3c; text-decoration: none; font-size: 1.2rem; font-weight: bold; display: block; padding: 10px; border-bottom: 1px solid #c89b3c;">
