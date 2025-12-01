@@ -1,34 +1,80 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Restaurante</title>
     <link rel="stylesheet" href="/static/css/login.css">
 </head>
+
 <body>
     <div class="login-box">
         <div class="logo">RISTORANTE BYTE</div>
         <h1 class="login-title">Bem-vindo de volta!</h1>
-        
-        <form action="/reserva" method="GET">
+
+        <!-- FORMULÁRIO -->
+        <form id="loginForm">
             <div class="form-group">
                 <label>E-mail</label>
-                <input type="text" placeholder="Digite seu e-mail cadastrado" required>
+                <input type="text" id="email" placeholder="Digite seu e-mail cadastrado" required>
             </div>
-            
+
             <div class="form-group">
                 <label>Senha</label>
-                <input type="password" placeholder="Digite sua senha" required>
+                <input type="password" id="senha" placeholder="Digite sua senha" required>
             </div>
-            
+
             <button type="submit" class="btn-login">Fazer sua Reserva</button>
-            
+
             <div class="links">
                 <a href="#">Esqueci a senha</a>
-                <a href="cadastro">Criar conta</a>
+                <a href="/cadastro">Criar conta</a>
             </div>
         </form>
     </div>
+
+    <script>
+        const API_URL = "http://localhost:5001";
+
+        document.getElementById("loginForm").addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+            const senha = document.getElementById("senha").value.trim();
+
+            if (!email || !senha) {
+                alert("Preencha todos os campos.");
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/login`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, senha })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    alert(data.erro || "Erro ao fazer login.");
+                    return;
+                }
+
+                // 🔥 SALVA TOKEN E USER_ID
+                localStorage.setItem("token", data.token);
+                localStorage.setItem("user_id", data.user.id);
+
+                // 🔥 REDIRECIONA PARA A PÁGINA DE RESERVA
+                window.location.href = "/reserva";
+
+            } catch (erro) {
+                console.error("Erro inesperado:", erro);
+                alert("Erro ao conectar ao servidor.");
+            }
+        });
+    </script>
 </body>
+
 </html>

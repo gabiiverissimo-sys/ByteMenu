@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva de Mesas - Restaurante</title>
+    <title>Reserva de Mesas - Ristorante Italiano Byte</title>
     <link rel="stylesheet" href="/static/css/reserva.css">
 </head>
+
 <body>
     <div class="header">
         <div class="logo">RISTORANTE ITALIANO BYTE</div>
@@ -17,27 +19,34 @@
             <h2>Como Funciona</h2>
             <div class="icons">
                 <div class="icon-item">
-                    <img width="50" height="50" src="https://img.icons8.com/ios/50/search--v1.png" alt="search--v1">
+                    <img width="50" height="50" src="https://img.icons8.com/ios/50/search--v1.png"
+                        alt="Buscar Disponibilidade">
                     <p>Buscar Disponibilidade</p>
                 </div>
                 <div class="icon-item">
-                    <img width="64" height="64" src="https://img.icons8.com/external-justicon-lineal-justicon/64/external-calendar-calendar-and-date-justicon-lineal-justicon-16.png" alt="external-calendar-calendar-and-date-justicon-lineal-justicon-16">
+                    <img width="64" height="64"
+                        src="https://img.icons8.com/external-justicon-lineal-justicon/64/external-calendar-calendar-and-date-justicon-lineal-justicon-16.png"
+                        alt="Escolher Data">
                     <p>Escolher Data</p>
                 </div>
                 <div class="icon-item">
-                    <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/shopping-cart--v1.png" alt="shopping-cart--v1">
+                    <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/shopping-cart--v1.png"
+                        alt="Confirmar Reserva">
                     <p>Confirmar Reserva</p>
                 </div>
                 <div class="icon-item">
-                    <img width="50" height="50" src="https://img.icons8.com/ios/50/event-accepted.png" alt="event-accepted">
+                    <img width="50" height="50" src="https://img.icons8.com/ios/50/event-accepted.png"
+                        alt="Reserva Confirmada">
                     <p>Reserva Confirmada</p>
                 </div>
                 <div class="icon-item">
-                    <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/table-top-view.png" alt="table-top-view">
+                    <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/table-top-view.png"
+                        alt="Selecionar Mesa">
                     <p>Selecionar Mesa</p>
                 </div>
                 <div class="icon-item">
-                    <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/restaurant-table.png" alt="restaurant-table">
+                    <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/restaurant-table.png"
+                        alt="Aproveite sua Mesa">
                     <p>Aproveite sua Mesa</p>
                 </div>
             </div>
@@ -91,7 +100,7 @@
 
             <div class="card">
                 <h2>Selecionar Mesa</h2>
-                
+
                 <div class="mesas-grid">
                     <div class="mesa" data-mesa="1">Mesa 1<br>2 pessoas</div>
                     <div class="mesa" data-mesa="2">Mesa 2<br>2 pessoas</div>
@@ -108,25 +117,30 @@
                     <div class="status-steps">
                         <div class="step active">
                             <div class="step-icon">
-                                <img width="40" height="40" src="https://img.icons8.com/ios/50/info--v1.png" alt="info--v1">
+                                <img width="40" height="40" src="https://img.icons8.com/ios/50/info--v1.png"
+                                    alt="info--v1">
                             </div>
                             <div class="step-text">Dados</div>
                         </div>
                         <div class="step">
                             <div class="step-icon">
-                                <img width="40" height="40" src="https://img.icons8.com/ios-filled/50/timeline-week.png" alt="timeline-week">
+                                <img width="40" height="40" src="https://img.icons8.com/ios-filled/50/timeline-week.png"
+                                    alt="timeline-week">
                             </div>
                             <div class="step-text">Data/Hora</div>
                         </div>
                         <div class="step">
                             <div class="step-icon">
-                                <img width="40" height="40" src="https://img.icons8.com/external-vectorslab-glyph-vectorslab/53/external-Restaurant-Table-travel-and-hotels-vectorslab-glyph-vectorslab.png" alt="external-Restaurant-Table-travel-and-hotels-vectorslab-glyph-vectorslab">
+                                <img width="40" height="40"
+                                    src="https://img.icons8.com/external-vectorslab-glyph-vectorslab/53/external-Restaurant-Table-travel-and-hotels-vectorslab-glyph-vectorslab.png"
+                                    alt="external-Restaurant-Table-travel-and-hotels-vectorslab-glyph-vectorslab">
                             </div>
                             <div class="step-text">Mesa</div>
                         </div>
                         <div class="step">
                             <div class="step-icon">
-                                <img width="40" height="40" src="https://img.icons8.com/ios/50/approval--v1.png" alt="approval--v1">
+                                <img width="40" height="40" src="https://img.icons8.com/ios/50/approval--v1.png"
+                                    alt="approval--v1">
                             </div>
                             <div class="step-text">Confirmação</div>
                         </div>
@@ -141,48 +155,98 @@
     </div>
 
     <script>
-        document.querySelectorAll('.mesa:not(.ocupada)').forEach(mesa => {
-            mesa.addEventListener('click', function() {
+
+        const API_URL = "http://localhost:5001";
+
+        const token = localStorage.getItem("token");
+        const userId = localStorage.getItem("user_id");
+        if (!token || !userId) {
+            alert("Você precisa estar logado para fazer reservas.");
+        }
+
+        function atualizarStep(idx) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            if (idx >= 0 && idx < 4) {
+                document.querySelectorAll('.step')[idx].classList.add('active');
+            }
+        }
+
+        document.getElementById('data').addEventListener('change', () => atualizarStep(1));
+        document.getElementById('horario').addEventListener('change', () => atualizarStep(1));
+
+        let mesaSelecionada = null;
+        document.querySelectorAll('.mesa').forEach(mesa => {
+            mesa.addEventListener('click', function () {
                 document.querySelectorAll('.mesa').forEach(m => m.classList.remove('selecionada'));
                 this.classList.add('selecionada');
-                
-                document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
-                document.querySelectorAll('.step')[2].classList.add('active');
+                mesaSelecionada = this.getAttribute('data-mesa');
+
+                // Atualiza o Step para "Mesa" (índice 2)
+                atualizarStep(2);
             });
         });
 
-        document.getElementById('reservaForm').addEventListener('submit', function(e) {
+        document.getElementById('reservaForm').addEventListener('submit', async function (e) {
             e.preventDefault();
-            
-            const mesaSelecionada = document.querySelector('.mesa.selecionada');
+
+            const dataVal = document.getElementById('data').value;
+            const horario = document.getElementById('horario').value;
+            const num_pessoas = document.getElementById('pessoas').value;
+            const observacao = document.getElementById('observacoes').value;
+
             if (!mesaSelecionada) {
-                alert('Por favor, selecione uma mesa primeiro!');
+                alert('Selecione uma mesa antes de enviar.');
                 return;
             }
-            
-            document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
-            document.querySelectorAll('.step')[3].classList.add('active');
-            
-            alert('Reserva enviada com sucesso! Entraremos em contato para confirmação.');
-            this.reset();
-            document.querySelectorAll('.mesa').forEach(m => m.classList.remove('selecionada'));
-            document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
-            document.querySelectorAll('.step')[0].classList.add('active');
-        });
-
-        document.getElementById('data').addEventListener('change', function() {
-            if (this.value) {
-                document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
-                document.querySelectorAll('.step')[1].classList.add('active');
+            if (!dataVal || !horario || !num_pessoas) {
+                alert('Preencha data, horário e número de pessoas.');
+                return;
             }
-        });
 
-        document.getElementById('horario').addEventListener('change', function() {
-            if (this.value) {
-                document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
-                document.querySelectorAll('.step')[1].classList.add('active');
+            const payload = {
+                user_id: Number(userId),
+                data: dataVal,
+                horario: horario,
+                num_pessoas: Number(num_pessoas),
+                observacao: observacao,
+                mesa: mesaSelecionada
+            };
+
+            console.log('Enviando reserva:', payload);
+
+            try {
+                const resp = await fetch(`${API_URL}/reservas`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + token
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const respJson = await resp.json().catch(() => ({}));
+                console.log('Resposta do servidor:', resp.status, respJson);
+
+                if (!resp.ok) {
+                    const msg = respJson.erro || respJson.msg || JSON.stringify(respJson) || 'Erro ao criar reserva.';
+                    alert('Erro ao criar reserva: ' + msg);
+                    return;
+                }
+
+                atualizarStep(3);
+                alert('Reserva criada com sucesso! Acompanhe o status em sua conta.');
+
+                this.reset();
+                mesaSelecionada = null;
+                document.querySelectorAll('.mesa').forEach(m => m.classList.remove('selecionada'));
+                atualizarStep(0);
+
+            } catch (err) {
+                console.error('Erro fetch:', err);
+                alert('Erro de conexão com o servidor.');
             }
         });
     </script>
 </body>
+
 </html>
